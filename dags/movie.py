@@ -32,22 +32,42 @@ with DAG(
     catchup=True,
     tags=['7_TRG','api', 'movie'],
 ) as dag:
-    REQUIREMENTS = "git+https://github.com/7-TRG/extract_trg.git@main"
+    #REQUIREMENTS = "git+https://github.com/7-TRG/extract_trg.git@main"
 
-    def Icebreaking():
+    def Icebreaking_e():
         from extract_trg.ice_breaking import ice_breaking
         ice_breaking()
+    def Icebreaking_t():
+        from transform_trg.ice_breaking import ice
+        ice()
+    def Icebreaking_l():
+        from load_trg.ice_breaking import ice_breaking
+        ice_breaking()
 
-    task_get = PythonVirtualenvOperator(
-        task_id='get.data',
-        python_callable=Icebreaking,
-        requirements=REQUIREMENTS,
+    task_e = PythonVirtualenvOperator(
+        task_id='extract',
+        python_callable=Icebreaking_e,
+        requirements=["git+https://github.com/7-TRG/extract_trg.git@main"],
         system_site_packages=False,
         trigger_rule="all_done",
         #venv_cache_path="/home/kim1/tmp2/airflow_venv/get_data"
     )
-
-
+    task_t = PythonVirtualenvOperator(
+        task_id='transform',
+        python_callable=Icebreaking_t,
+        requirements=["git+https://github.com/7-TRG/transform_trg.git@main"],
+        system_site_packages=False,
+        trigger_rule="all_done",
+        #venv_cache_path="/home/kim1/tmp2/airflow_venv/get_data"
+    )
+    task_l = PythonVirtualenvOperator(
+        task_id='load',
+        python_callable=Icebreaking_l,
+        requirements=['git+https://github.com/7-TRG/load_trg.git@main'],
+        system_site_packages=False,
+        trigger_rule="all_done",
+        #venv_cache_path="/home/kim1/tmp2/airflow_venv/get_data"
+    )
 
 #    task_err = BashOperator(
 #        bash_command="""
@@ -57,10 +77,9 @@ with DAG(
 #        """,
 #    )
 
-
     task_end = EmptyOperator(task_id='end', trigger_rule="all_done")
     task_start = EmptyOperator(task_id='start')
 
-    task_start >> task_get >> task_end
+    task_start >> task_e >> task_t >> task_l >> task_end
  
 
