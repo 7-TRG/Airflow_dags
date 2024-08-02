@@ -1,11 +1,10 @@
 # Airflow_dags
 
 ## d1.0.0
-- [ ] Git 연동
-- [ ] 껍데기 작성 => 어떤 껍데기?
-- [ ] Airflow 변수 변경, gitignore 확인하기
-- [ ] Airflow Dag에 사용할 .py 만들기 -> 24 * 7 설정 변경하기
-- [ ] Ice-breaking 함수 개발(디렉토리 생성 후 -> pdm init -> 모듈 개발 -> git push)
+- [X] Git 연동
+- [X] Airflow 변수 변경, gitignore 확인하기
+- [X] Airflow Dag에 사용할 .py 만들기 -> 24 * 7 설정 변경하기
+- [X] Ice-breaking 함수 개발(디렉토리 생성 후 -> pdm init -> 모듈 개발 -> git push)
 - [ ] 회고 작성
 
 ### 기능 분배
@@ -55,3 +54,10 @@ error: 병합 때문에 추적하지 않는 다음 작업 폴더의 파일을 �
 중지함
 ```
 해결 : 브랜치 삭제 후 git reset --hard origin/dev/d1.0.0 명령 실행'
+
+
+
+- 상황 : A가 로컬 컴퓨터에서 Airflow를 사용하고 싶은 상황, Github에 airflow의 환경설정을 저장하는 airflow.cfg 파일이 올라가 있는 상태
+- 문제 : A가 Github(airflow_dags)를 pull하면  airflow.cfg 파일이 같이 딸려들어오는 상황
+- 해결 : Github 상의 airflow.cfg를 삭제, gitignore에서 airflow.cfg를 추가한 뒤에 push
+- 결과 : 팀원들도 Github를 활용해서 Airflow를 실행시킬 수 있다.
