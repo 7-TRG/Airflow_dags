@@ -42,6 +42,7 @@
 - Git Clone 시 HTTPS 대신 SSH URL 사용
 
 ### [Git 사용]
+문제1
 - 문제 : Airflow_dag를 git pull 하는 과정에서 로컬에서도 똑같은 파일이 존재. 그래서 다음과 같은 오류 발생
 ```
 branch            dev/d1.0.0 -> FETCH_HEAD
@@ -53,10 +54,9 @@ error: 병합 때문에 추적하지 않는 다음 작업 폴더의 파일을 �
 병합하기 전에 이 파일을 옮기거나 제거하십시오.
 중지함
 ```
-해결 : 브랜치 삭제 후 git reset --hard origin/dev/d1.0.0 명령 실행'
+- 해결 : 브랜치 삭제 후 git reset --hard origin/dev/d1.0.0 명령 실행'
 
-
-
+문제2
 - 상황 : A가 로컬 컴퓨터에서 Airflow를 사용하고 싶은 상황, Github에 airflow의 환경설정을 저장하는 airflow.cfg 파일이 올라가 있는 상태
 - 문제 : A가 Github(airflow_dags)를 pull하면  airflow.cfg 파일이 같이 딸려들어오는 상황
 - 해결 : Github 상의 airflow.cfg를 삭제, gitignore에서 airflow.cfg를 추가한 뒤에 push
