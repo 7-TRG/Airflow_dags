@@ -29,8 +29,8 @@ with DAG(
     #schedule=timedelta(days=1),
     schedule="0 5 * * *",
     start_date=datetime(2017, 1, 1),
-    #end_date=datetime(2017, 4, 30),
-    end_date=datetime(2017, 2, 1),
+    end_date=datetime(2017, 4, 30),
+    #end_date=datetime(2017, 2, 1),
     catchup=True,
     tags=['7_TRG','api', 'movie'],
 ) as dag:
