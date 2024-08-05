@@ -20,25 +20,37 @@ with DAG(
     default_args={
         'depends_on_past': True,
         'retries': 2,
-        'retry_delay': timedelta(seconds=3)
+        'retry_delay': timedelta(seconds=3),
+        'max_active_tasks': 3,
+        'max_active_runs': 1,
         },
-    max_active_tasks=3,
-    max_active_runs=1,
+
     description='Movie Data',
     #schedule=timedelta(days=1),
-    schedule="* 5 * * *",
+    schedule="0 5 * * *",
     start_date=datetime(2017, 1, 1),
     end_date=datetime(2017, 4, 30),
     catchup=True,
     tags=['7_TRG','api', 'movie'],
 ) as dag:
     #REQUIREMENTS = "git+https://github.com/7-TRG/extract_trg.git@main"
-
-    def extract_df(**kwargs):
+    
+ 
+    def extract_df(*args):
+        ds_nodash = args[0]
+        li = args[1:]
+        print(ds_nodash, li)
         from extract_trg.extract_trg import dt2df
-        df = dt2df(kwargs['ds_nodash'], kwargs['url_params'])
-        print(df.head(10))
-        return df
+        for dic in li:
+            df = dt2df(ds_nodash, dic)
+            print(df.head(10))
+
+            for k, v in dic.items():
+                df[k] = v
+
+            p_cols = ['load_dt'] + list(dic.keys())
+            df.to_parquet("~/code/7_TRG/data_parquet", partition_cols = p_cols)
+
     def Icebreaking_t():
         from transform_trg.ice_breaking import ice
         ice()
@@ -52,8 +64,9 @@ with DAG(
         requirements=["git+https://github.com/7-TRG/extract_trg.git@d2.0.0"],
         system_site_packages=False,
         trigger_rule="all_done",
-        op_kwargs = {'url_params' : {'multiMovieYn' : 'Y'}}
-        #venv_cache_path="/home/kim1/tmp2/airflow_venv/get_data"
+        op_args = ['{{ ds_nodash }}',{'multiMovieYn' : 'Y'}, {'repNationCd' : 'K'}, {'multiMovieYn': 'N'},{ 'repNationCd' : 'F'}]
+#op_kwargs = {'url_params' : {'multiMovieYn' : 'Y', 'repNationCd' : 'K'}, 'url_params2' : {'multiMovieYn': 'N', 'repNationCd' : 'F'}}
+        #venv_cache_path="/home/kim1/tmp2/airflow_venv/get_data"r
     )
     task_t = PythonVirtualenvOperator(
         task_id='transform',
