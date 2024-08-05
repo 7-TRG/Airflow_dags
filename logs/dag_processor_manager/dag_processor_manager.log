@@ -1645,3 +1645,12 @@ File Path                                                PID    Runtime      # D
 /home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.20s           2024-08-05T02:53:02
 /home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.20s           2024-08-05T02:53:44
 ================================================================================
+[2024-08-05T11:54:26.423+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.20s           2024-08-05T02:53:44
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.20s           2024-08-05T02:54:26
+================================================================================
