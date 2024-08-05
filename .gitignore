@@ -8,3 +8,5 @@ airflow.db
 airflow.cfg
 standalone_admin_password.txt
 *.cfg
+*.pyc
+webserver_config.py

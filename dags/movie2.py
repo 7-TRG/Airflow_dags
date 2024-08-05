@@ -28,9 +28,9 @@ with DAG(
     description='Movie Data',
     #schedule=timedelta(days=1),
     schedule="0 5 * * *",
-    start_date=datetime(2017, 1, 1),
+    start_date=datetime(2017, 5, 1),
     #end_date=datetime(2017, 4, 30),
-    end_date=datetime(2017, 2, 1),
+    end_date=datetime(2017, 8, 31),
     catchup=True,
     tags=['7_TRG','api', 'movie'],
 ) as dag:
