@@ -1441,3 +1441,207 @@ File Path                                                PID    Runtime      # D
 /home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.30s           2024-08-05T02:39:14
 /home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.21s           2024-08-05T02:39:52
 ================================================================================
+[2024-08-05T11:40:35.660+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.21s           2024-08-05T02:40:35
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.20s           2024-08-05T02:40:01
+================================================================================
+[2024-08-05T11:41:21.673+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.21s           2024-08-05T02:40:44
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.20s           2024-08-05T02:41:21
+================================================================================
+[2024-08-05T11:42:12.137+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.31s           2024-08-05T02:42:12
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.20s           2024-08-05T02:41:30
+================================================================================
+[2024-08-05T11:42:58.322+0900] {manager.py:737} INFO - Searching for files in /home/kimpass189/code/7_TRG/airflow_dags/dags
+[2024-08-05T11:42:58.324+0900] {manager.py:740} INFO - There are 2 files in /home/kimpass189/code/7_TRG/airflow_dags/dags
+[2024-08-05T11:42:58.542+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.20s           2024-08-05T02:42:21
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.20s           2024-08-05T02:42:58
+================================================================================
+[2024-08-05T11:43:29.764+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.31s           2024-08-05T02:43:29
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.20s           2024-08-05T02:43:08
+================================================================================
+[2024-08-05T11:44:00.281+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.23s           2024-08-05T02:44:00
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.20s           2024-08-05T02:43:38
+================================================================================
+[2024-08-05T11:44:30.448+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.22s           2024-08-05T02:44:27
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.21s           2024-08-05T02:44:09
+================================================================================
+[2024-08-05T11:45:02.248+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.21s           2024-08-05T02:44:09
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.10s           2024-08-05T02:45:02
+================================================================================
+[2024-08-05T11:45:47.825+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.21s           2024-08-05T02:45:10
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.20s           2024-08-05T02:45:47
+================================================================================
+[2024-08-05T11:46:33.478+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.20s           2024-08-05T02:45:56
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.20s           2024-08-05T02:46:33
+================================================================================
+[2024-08-05T11:47:19.689+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.21s           2024-08-05T02:46:43
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.20s           2024-08-05T02:47:19
+================================================================================
+[2024-08-05T11:47:50.631+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.20s           2024-08-05T02:47:28
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           0           1  0.11s           2024-08-05T02:47:48
+================================================================================
+[2024-08-05T11:47:58.324+0900] {manager.py:737} INFO - Searching for files in /home/kimpass189/code/7_TRG/airflow_dags/dags
+[2024-08-05T11:47:58.325+0900] {manager.py:740} INFO - There are 2 files in /home/kimpass189/code/7_TRG/airflow_dags/dags
+[2024-08-05T11:48:21.056+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.31s           2024-08-05T02:48:00
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.20s           2024-08-05T02:48:01
+================================================================================
+[2024-08-05T11:48:51.410+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.21s           2024-08-05T02:48:30
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.10s           2024-08-05T02:48:31
+================================================================================
+[2024-08-05T11:49:21.891+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.21s           2024-08-05T02:49:00
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.21s           2024-08-05T02:49:01
+================================================================================
+[2024-08-05T11:49:52.315+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.21s           2024-08-05T02:49:31
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.21s           2024-08-05T02:49:32
+================================================================================
+[2024-08-05T11:50:22.787+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.31s           2024-08-05T02:50:11
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.21s           2024-08-05T02:50:02
+================================================================================
+[2024-08-05T11:50:56.836+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.21s           2024-08-05T02:50:02
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.10s           2024-08-05T02:50:56
+================================================================================
+[2024-08-05T11:51:28.528+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.10s           2024-08-05T02:50:56
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.10s           2024-08-05T02:51:28
+================================================================================
+[2024-08-05T11:52:21.323+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.21s           2024-08-05T02:52:21
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.10s           2024-08-05T02:51:28
+================================================================================
+[2024-08-05T11:53:02.491+0900] {manager.py:737} INFO - Searching for files in /home/kimpass189/code/7_TRG/airflow_dags/dags
+[2024-08-05T11:53:02.493+0900] {manager.py:740} INFO - There are 2 files in /home/kimpass189/code/7_TRG/airflow_dags/dags
+[2024-08-05T11:53:02.714+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.21s           2024-08-05T02:52:21
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.20s           2024-08-05T02:53:02
+================================================================================
+[2024-08-05T11:53:44.060+0900] {manager.py:878} INFO - 
+================================================================================
+DAG File Processing Stats
+
+File Path                                                PID    Runtime      # DAGs    # Errors  Last Runtime    Last Run
+-------------------------------------------------------  -----  ---------  --------  ----------  --------------  -------------------
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.20s           2024-08-05T02:53:02
+/home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.20s           2024-08-05T02:53:44
+================================================================================
