@@ -1654,3 +1654,4 @@ File Path                                                PID    Runtime      # D
 /home/kimpass189/code/7_TRG/airflow_dags/dags/movie2.py                           1           0  0.20s           2024-08-05T02:53:44
 /home/kimpass189/code/7_TRG/airflow_dags/dags/movie.py                            1           0  0.20s           2024-08-05T02:54:26
 ================================================================================
+[2024-08-05T11:54:58.517+0900] {manager.py:452} INFO - Exiting gracefully upon receiving signal 15
