@@ -7,3 +7,4 @@ airflow.db
 ".gitignore"
 airflow.cfg
 standalone_admin_password.txt
+*.cfg
