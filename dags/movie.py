@@ -21,9 +21,9 @@ with DAG(
         'depends_on_past': True,
         'retries': 2,
         'retry_delay': timedelta(seconds=3)
+        'max_active_tasks' : 3,
+        'max_active_runs' : 1
         },
-    max_active_tasks=3,
-    max_active_runs=1,
     description='Movie Data',
     #schedule=timedelta(days=1),
     schedule="* 5 * * *",
