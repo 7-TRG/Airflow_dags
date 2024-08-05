@@ -14,25 +14,28 @@ from airflow.operators.python import (
         )
 
 with DAG(
-        'movie2',
+        'movie',
     # These args will get passed on to each operator
     # You can override them on a per-task basis during operator initialization
     default_args={
         'depends_on_past': True,
         'retries': 2,
         'retry_delay': timedelta(seconds=3),
-        'max_active_tasks' : 3,
-        'max_active_runs' : 1
+        'max_active_tasks': 3,
+        'max_active_runs': 1,
         },
+
     description='Movie Data',
     #schedule=timedelta(days=1),
     schedule="0 5 * * *",
     start_date=datetime(2017, 5, 1),
+    #end_date=datetime(2017, 4, 30),
     end_date=datetime(2017, 8, 31),
     catchup=True,
-    tags=['7_TRG','api', 'movie2'],
+    tags=['7_TRG','api', 'movie'],
 ) as dag:
     #REQUIREMENTS = "git+https://github.com/7-TRG/extract_trg.git@main"
+    
     def branch_fun(ds_nodash):
         import os
         home_dir = os.path.expanduser("~")
@@ -57,9 +60,12 @@ with DAG(
 
             p_cols = ['load_dt'] + list(dic.keys())
             df.to_parquet("~/code/7_TRG/data_parquet", partition_cols = p_cols)
-    def Icebreaking_t():
-        from transform_trg.ice_breaking import ice
-        ice()
+
+    def transform_df(ds_nodash):
+        from transform_trg.transform_trg import mer
+        df = mer(ds_nodash)
+        print(df.head())
+        return df
     def Icebreaking_l():
         from load_trg.ice_breaking import ice_breaking
         ice_breaking()
@@ -77,8 +83,8 @@ with DAG(
 
     task_t = PythonVirtualenvOperator(
         task_id='transform',
-        python_callable=Icebreaking_t,
-        requirements=["git+https://github.com/7-TRG/transform_trg.git@main"],
+        python_callable=transform_df,
+        requirements=["git+https://github.com/7-TRG/transform_trg.git@dev/d2.0.0"],
         system_site_packages=False,
         trigger_rule="all_done",
         #venv_cache_path="/home/kim1/tmp2/airflow_venv/get_data"
@@ -99,8 +105,10 @@ with DAG(
 
     rm_dir = BashOperator(
         task_id='rm.dir',
-        bash_command='rm -rf ~/tmp/test_parquet/load_dt={{ ds_nodash }}',
+        bash_command='rm -rf ~/code/7_TRG/data_parquet/load_dt={{ ds_nodash }}',
     )
+
+
 
 #    task_err = BashOperator(
 #        bash_command="""
@@ -114,5 +122,4 @@ with DAG(
     task_start = EmptyOperator(task_id='start')
 
     task_start >> branch_op  >> task_e >> task_t >> task_l >> task_end
-    branch_op >> rm_dir >> task_e 
-
+    branch_op >> rm_dir >> task_e
