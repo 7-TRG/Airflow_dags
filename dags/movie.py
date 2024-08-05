@@ -20,13 +20,13 @@ with DAG(
     default_args={
         'depends_on_past': True,
         'retries': 2,
-        'retry_delay': timedelta(seconds=3)
+        'retry_delay': timedelta(seconds=3),
         'max_active_tasks' : 3,
         'max_active_runs' : 1
         },
     description='Movie Data',
     #schedule=timedelta(days=1),
-    schedule="* 5 * * *",
+    schedule="0 5 * * *",
     start_date=datetime(2017, 1, 1),
     end_date=datetime(2017, 4, 30),
     catchup=True,

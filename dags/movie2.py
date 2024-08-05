@@ -26,7 +26,7 @@ with DAG(
         },
     description='Movie Data',
     #schedule=timedelta(days=1),
-    schedule="* 5 * * *",
+    schedule="0 5 * * *",
     start_date=datetime(2017, 5, 1),
     end_date=datetime(2017, 8, 31),
     catchup=True,
