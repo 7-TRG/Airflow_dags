@@ -28,15 +28,17 @@ with DAG(
     #schedule=timedelta(days=1),
     schedule="* 5 * * *",
     start_date=datetime(2017, 1, 1),
-    end_date=datetime(2017, 12, 31),
+    end_date=datetime(2017, 4, 30),
     catchup=True,
     tags=['7_TRG','api', 'movie'],
 ) as dag:
     #REQUIREMENTS = "git+https://github.com/7-TRG/extract_trg.git@main"
 
-    def Icebreaking_e():
-        from extract_trg.ice_breaking import ice_breaking
-        ice_breaking()
+    def extract_df(**kwargs):
+        from extract_trg.extract_trg import dt2df
+        df = dt2df(kwargs['ds_nodash'], kwargs['url_params'])
+        print(df.head(10))
+        return df
     def Icebreaking_t():
         from transform_trg.ice_breaking import ice
         ice()
@@ -46,10 +48,11 @@ with DAG(
 
     task_e = PythonVirtualenvOperator(
         task_id='extract',
-        python_callable=Icebreaking_e,
-        requirements=["git+https://github.com/7-TRG/extract_trg.git@main"],
+        python_callable=extract_df,
+        requirements=["git+https://github.com/7-TRG/extract_trg.git@d2.0.0"],
         system_site_packages=False,
         trigger_rule="all_done",
+        op_kwargs = {'url_params' : {'multiMovieYn' : 'Y'}}
         #venv_cache_path="/home/kim1/tmp2/airflow_venv/get_data"
     )
     task_t = PythonVirtualenvOperator(
