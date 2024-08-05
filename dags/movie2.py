@@ -14,7 +14,7 @@ from airflow.operators.python import (
         )
 
 with DAG(
-        'movie',
+        'movie2',
     # These args will get passed on to each operator
     # You can override them on a per-task basis during operator initialization
     default_args={
@@ -27,10 +27,10 @@ with DAG(
     description='Movie Data',
     #schedule=timedelta(days=1),
     schedule="* 5 * * *",
-    start_date=datetime(2017, 1, 1),
-    end_date=datetime(2017, 4, 30),
+    start_date=datetime(2017, 5, 1),
+    end_date=datetime(2017, 8, 31),
     catchup=True,
-    tags=['7_TRG','api', 'movie'],
+    tags=['7_TRG','api', 'movie2'],
 ) as dag:
     #REQUIREMENTS = "git+https://github.com/7-TRG/extract_trg.git@main"
 
