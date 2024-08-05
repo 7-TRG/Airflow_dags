@@ -14,7 +14,7 @@ from airflow.operators.python import (
         )
 
 with DAG(
-        'movie',
+        'movie2',
     # These args will get passed on to each operator
     # You can override them on a per-task basis during operator initialization
     default_args={
