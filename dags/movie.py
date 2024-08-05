@@ -35,7 +35,16 @@ with DAG(
 ) as dag:
     #REQUIREMENTS = "git+https://github.com/7-TRG/extract_trg.git@main"
     
- 
+    def branch_fun(ds_nodash):
+        import os
+        home_dir = os.path.expanduser("~")
+#        path = os.path.join(home_dir, f"tmp/test_parquet/load_dt={ds_nodash}") 
+        path = os.path.join(home_dir, f"code/7_TRG/data_parquet/load_dt={ds_nodash}")
+        if os.path.exists(path):
+            return rm_dir.task_id
+        else:
+            return task_e.task_id
+
     def extract_df(*args):
         ds_nodash = args[0]
         li = args[1:]
@@ -86,6 +95,18 @@ with DAG(
         #venv_cache_path="/home/kim1/tmp2/airflow_venv/get_data"
     )
 
+    branch_op = BranchPythonOperator(
+        task_id="branch.op",
+        python_callable=branch_fun
+    )
+
+    rm_dir = BashOperator(
+        task_id='rm.dir',
+        bash_command='rm -rf ~/tmp/test_parquet/load_dt={{ ds_nodash }}',
+    )
+
+
+
 #    task_err = BashOperator(
 #        bash_command="""
 #            DONE_PATH=~/data/done/{{ds_nodash}}
@@ -97,6 +118,5 @@ with DAG(
     task_end = EmptyOperator(task_id='end', trigger_rule="all_done")
     task_start = EmptyOperator(task_id='start')
 
-    task_start >> task_e >> task_t >> task_l >> task_end
- 
-
+    task_start >> branch_op  >> task_e >> task_t >> task_l >> task_end
+    branch_op >> rm_dir >> task_e
