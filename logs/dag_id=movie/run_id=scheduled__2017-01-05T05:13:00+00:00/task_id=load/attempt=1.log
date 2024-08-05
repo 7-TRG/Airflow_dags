@@ -1,0 +1,102 @@
+[2024-08-02T17:40:23.822+0900] {local_task_job_runner.py:120} INFO - ::group::Pre task execution logs
+[2024-08-02T17:40:23.842+0900] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=non-requeueable deps ti=<TaskInstance: movie.load scheduled__2017-01-05T05:13:00+00:00 [queued]>
+[2024-08-02T17:40:23.849+0900] {taskinstance.py:2076} INFO - Dependencies all met for dep_context=requeueable deps ti=<TaskInstance: movie.load scheduled__2017-01-05T05:13:00+00:00 [queued]>
+[2024-08-02T17:40:23.849+0900] {taskinstance.py:2306} INFO - Starting attempt 1 of 3
+[2024-08-02T17:40:23.866+0900] {taskinstance.py:2330} INFO - Executing <Task(PythonVirtualenvOperator): load> on 2017-01-05 05:13:00+00:00
+[2024-08-02T17:40:23.869+0900] {standard_task_runner.py:64} INFO - Started process 173116 to run task
+[2024-08-02T17:40:23.872+0900] {standard_task_runner.py:90} INFO - Running: ['airflow', 'tasks', 'run', 'movie', 'load', 'scheduled__2017-01-05T05:13:00+00:00', '--job-id', '287', '--raw', '--subdir', 'DAGS_FOLDER/movie.py', '--cfg-path', '/tmp/tmpfkpla47o']
+[2024-08-02T17:40:23.874+0900] {standard_task_runner.py:91} INFO - Job 287: Subtask load
+[2024-08-02T17:40:23.912+0900] {task_command.py:426} INFO - Running <TaskInstance: movie.load scheduled__2017-01-05T05:13:00+00:00 [running]> on host playdata.
+[2024-08-02T17:40:23.978+0900] {taskinstance.py:2648} INFO - Exporting env vars: AIRFLOW_CTX_DAG_OWNER='airflow' AIRFLOW_CTX_DAG_ID='movie' AIRFLOW_CTX_TASK_ID='load' AIRFLOW_CTX_EXECUTION_DATE='2017-01-05T05:13:00+00:00' AIRFLOW_CTX_TRY_NUMBER='1' AIRFLOW_CTX_DAG_RUN_ID='scheduled__2017-01-05T05:13:00+00:00'
+[2024-08-02T17:40:23.979+0900] {taskinstance.py:430} INFO - ::endgroup::
+[2024-08-02T17:40:23.991+0900] {baseoperator.py:400} WARNING - PythonVirtualenvOperator.execute cannot be called outside TaskInstance!
+[2024-08-02T17:40:23.992+0900] {process_utils.py:183} INFO - Executing cmd: /home/oddsummer/.pyenv/versions/3.11.9/envs/air/bin/python -m virtualenv /tmp/venv301flt7q --python=python
+[2024-08-02T17:40:23.993+0900] {process_utils.py:187} INFO - Output:
+[2024-08-02T17:40:24.330+0900] {process_utils.py:191} INFO - created virtual environment CPython3.11.9.final.0-64 in 228ms
+[2024-08-02T17:40:24.330+0900] {process_utils.py:191} INFO -   creator CPython3Posix(dest=/tmp/venv301flt7q, clear=False, no_vcs_ignore=False, global=False)
+[2024-08-02T17:40:24.330+0900] {process_utils.py:191} INFO -   seeder FromAppData(download=False, pip=bundle, setuptools=bundle, wheel=bundle, via=copy, app_data_dir=/home/oddsummer/.local/share/virtualenv)
+[2024-08-02T17:40:24.331+0900] {process_utils.py:191} INFO -     added seed packages: pip==24.1.2, setuptools==70.2.0, wheel==0.43.0
+[2024-08-02T17:40:24.331+0900] {process_utils.py:191} INFO -   activators BashActivator,CShellActivator,FishActivator,NushellActivator,PowerShellActivator,PythonActivator
+[2024-08-02T17:40:24.355+0900] {process_utils.py:183} INFO - Executing cmd: /tmp/venv301flt7q/bin/pip install -r /tmp/venv301flt7q/requirements.txt
+[2024-08-02T17:40:24.356+0900] {process_utils.py:187} INFO - Output:
+[2024-08-02T17:40:25.306+0900] {process_utils.py:191} INFO - Collecting git+https://github.com/7-TRG/load_trg.git@main (from -r /tmp/venv301flt7q/requirements.txt (line 1))
+[2024-08-02T17:40:25.307+0900] {process_utils.py:191} INFO -   Cloning https://github.com/7-TRG/load_trg.git (to revision main) to /tmp/pip-req-build-bbe_pacn
+[2024-08-02T17:40:25.310+0900] {process_utils.py:191} INFO -   Running command git clone --filter=blob:none --quiet https://github.com/7-TRG/load_trg.git /tmp/pip-req-build-bbe_pacn
+[2024-08-02T17:40:27.100+0900] {process_utils.py:191} INFO -   Resolved https://github.com/7-TRG/load_trg.git to commit a78367af409831858479a749824cec8cc5149efe
+[2024-08-02T17:40:27.105+0900] {process_utils.py:191} INFO -   Installing build dependencies: started
+[2024-08-02T17:40:28.966+0900] {process_utils.py:191} INFO -   Installing build dependencies: finished with status 'done'
+[2024-08-02T17:40:28.967+0900] {process_utils.py:191} INFO -   Getting requirements to build wheel: started
+[2024-08-02T17:40:29.205+0900] {process_utils.py:191} INFO -   Getting requirements to build wheel: finished with status 'done'
+[2024-08-02T17:40:29.207+0900] {process_utils.py:191} INFO -   Preparing metadata (pyproject.toml): started
+[2024-08-02T17:40:29.450+0900] {process_utils.py:191} INFO -   Preparing metadata (pyproject.toml): finished with status 'done'
+[2024-08-02T17:40:29.453+0900] {process_utils.py:191} INFO - Building wheels for collected packages: load_trg
+[2024-08-02T17:40:29.457+0900] {process_utils.py:191} INFO -   Building wheel for load_trg (pyproject.toml): started
+[2024-08-02T17:40:29.716+0900] {process_utils.py:191} INFO -   Building wheel for load_trg (pyproject.toml): finished with status 'done'
+[2024-08-02T17:40:29.717+0900] {process_utils.py:191} INFO -   Created wheel for load_trg: filename=load_trg-0.1.0-py3-none-any.whl size=2181 sha256=689564064d64f7ee34e5f20177780115af470a5fe7d9411c7fbdc1de001a23c6
+[2024-08-02T17:40:29.717+0900] {process_utils.py:191} INFO -   Stored in directory: /tmp/pip-ephem-wheel-cache-aeuxihlr/wheels/a8/48/51/c448b4db115fa94c6efe6c0747490b8a38ea43c45c28f37c7f
+[2024-08-02T17:40:29.719+0900] {process_utils.py:191} INFO - Successfully built load_trg
+[2024-08-02T17:40:29.729+0900] {process_utils.py:191} INFO - Installing collected packages: load_trg
+[2024-08-02T17:40:29.746+0900] {process_utils.py:191} INFO - Successfully installed load_trg-0.1.0
+[2024-08-02T17:40:29.752+0900] {process_utils.py:191} INFO - 
+[2024-08-02T17:40:29.753+0900] {process_utils.py:191} INFO - [notice] A new release of pip is available: 24.1.2 -> 24.2
+[2024-08-02T17:40:29.753+0900] {process_utils.py:191} INFO - [notice] To update, run: python -m pip install --upgrade pip
+[2024-08-02T17:40:29.847+0900] {process_utils.py:183} INFO - Executing cmd: /tmp/venv301flt7q/bin/python /tmp/venv-callluie9wa9/script.py /tmp/venv-callluie9wa9/script.in /tmp/venv-callluie9wa9/script.out /tmp/venv-callluie9wa9/string_args.txt /tmp/venv-callluie9wa9/termination.log
+[2024-08-02T17:40:29.847+0900] {process_utils.py:187} INFO - Output:
+[2024-08-02T17:40:29.869+0900] {process_utils.py:191} INFO - 
+[2024-08-02T17:40:29.869+0900] {process_utils.py:191} INFO -     ---------------======---::::::------+--=======++++++++++===--:...::-=--==============--:.....:-=====
+[2024-08-02T17:40:29.869+0900] {process_utils.py:191} INFO - ----::---------------------===--::--+-----=============++++++===---:....--===============--:...:-===
+[2024-08-02T17:40:29.869+0900] {process_utils.py:191} INFO - ----------------------------------=++----------------------=+===========-::.:-======================
+[2024-08-02T17:40:29.870+0900] {process_utils.py:191} INFO - =----------------------------------==-----------------------=-----==============================+=--
+[2024-08-02T17:40:29.870+0900] {process_utils.py:191} INFO - %%####=----------------------------==----------------------=-::::-----======+*%#++================::
+[2024-08-02T17:40:29.870+0900] {process_utils.py:191} INFO - %%%%%#=----------------------------=-:---------------------=--==--------=====*#*=================-::
+[2024-08-02T17:40:29.870+0900] {process_utils.py:191} INFO - @@%%%*-----------------+***++=-----=-::-------------------:+---------=====+++====================-::
+[2024-08-02T17:40:29.870+0900] {process_utils.py:191} INFO - @@%%%*---------------#%%%%##%%#=---=-+##*#+----------------=------------=====+====-=--===========-::
+[2024-08-02T17:40:29.870+0900] {process_utils.py:191} INFO - @@@%%+--=+*%%%+-----+%@@%#++%%%#=--=*%+===#+::----------::=-----------=+*##*++=-----------=======-::
+[2024-08-02T17:40:29.870+0900] {process_utils.py:191} INFO - +++++=-+#+***#*=-----#*++**+#@@@*--+#+**+***-:=-:---=*+-::=-----==+++*######%%%#=-------------==-:::
+[2024-08-02T17:40:29.871+0900] {process_utils.py:191} INFO - *******-:::-*=-------+===+=-=+#%%:-=++++=+==-:=-:::=%%#-::###=-*#%%%%%%%%%%%%%%%%+---------------:::
+[2024-08-02T17:40:29.871+0900] {process_utils.py:191} INFO - =====+=:--::+---+--+**++++*+++#%*-=--**++++-:=++=::+#*-::=%%%#*#%%%%%%%%@@%%%%@@%%#====------+#%%=-*
+[2024-08-02T17:40:29.871+0900] {process_utils.py:191} INFO - =-==++---=+==*#%%%%%%=*++++++++==-=-*##*+=##**++=--++-:--*=-=*#%%%@%###*###*+++*%%%*=============-#%
+[2024-08-02T17:40:29.871+0900] {process_utils.py:191} INFO - +-=------=*%%%%@%@@@@***=+*#+*##*#%%@@**++%@%%%%*+=--=-=+-:--:#%@@%#*****###*+---+*++#**===---=++*%@
+[2024-08-02T17:40:29.871+0900] {process_utils.py:191} INFO - --==-::-*%%%@@@@@@@%#*=-+++%@%##%%@@@@@%#%@@@%%@%%%*=--=#%####-%@%%####++++++=---==++*####*+++*%@%@@
+[2024-08-02T17:40:29.871+0900] {process_utils.py:191} INFO - -=*+=-=#@@@@@@@@@#*+++++*@@@@@@@@@@@@@@@@@@@@@@@@@@@#+==-+*+#=:-+#%##**==++**+++=====+*###*+**#@%##%
+[2024-08-02T17:40:29.871+0900] {process_utils.py:191} INFO - -=++-+%%@%@@@@%+=-++***#@@@@@@@@@@@@%:+@@*%+=%@@@@@@%%#%%#*=+--:-=#++**%#*+=+++++===+**####=*%%%%%%%
+[2024-08-02T17:40:29.871+0900] {process_utils.py:191} INFO - -=++#%%####+-:---=*%%@@%#######**++++=+++++++++%%=+%@@%##*+==-=++=+*****##*===+++++==*#####*+#%%##%%
+[2024-08-02T17:40:29.872+0900] {process_utils.py:191} INFO - -=*+=---==+=-::::-*@@@%+=======++++++++++++++*#%#**%%%*==-+*=--+==*****#**+=====+++++=***+++=+==::::
+[2024-08-02T17:40:29.872+0900] {process_utils.py:191} INFO - =#*=++++++*###**==*@@@%=======++++++++*@@@@@@@@%%#####-:=+----==******##****+++++***==-=+=:::.::::::
+[2024-08-02T17:40:29.872+0900] {process_utils.py:191} INFO - #%*+*++++**##*###*+#@@#=========++++==*%%%%%%%%######*=-----==+*********##########*+====::::::::::::
+[2024-08-02T17:40:29.872+0900] {process_utils.py:191} INFO - ++++*#%%@%*##*##***%@@*===============+%##%%######%%%%*==-===+*********+=+*#######*++++-:::--::-----
+[2024-08-02T17:40:29.872+0900] {process_utils.py:191} INFO - ===+*#%@@%*##**#**+=--================+%%#%%###%#%%%%%#======*#######*-:-++*####*****++:------------
+[2024-08-02T17:40:29.872+0900] {process_utils.py:191} INFO - =+=------=##**##**+=--================+%%#%%###%%#%%%%%+=====+###**++==----:-*####****=------==-====
+[2024-08-02T17:40:29.872+0900] {process_utils.py:191} INFO - 
+[2024-08-02T17:40:29.872+0900] {process_utils.py:191} INFO - 
+[2024-08-02T17:40:29.873+0900] {process_utils.py:191} INFO -     ---------------======---::::::------+--=======++++++++++===--:...::-=--==============--:.....:-=====
+[2024-08-02T17:40:29.873+0900] {process_utils.py:191} INFO - ----::---------------------===--::--+-----=============++++++===---:....--===============--:...:-===
+[2024-08-02T17:40:29.873+0900] {process_utils.py:191} INFO - ----------------------------------=++----------------------=+===========-::.:-======================
+[2024-08-02T17:40:29.873+0900] {process_utils.py:191} INFO - =----------------------------------==-----------------------=-----==============================+=--
+[2024-08-02T17:40:29.873+0900] {process_utils.py:191} INFO - %%####=----------------------------==----------------------=-::::-----======+*%#++================::
+[2024-08-02T17:40:29.873+0900] {process_utils.py:191} INFO - %%%%%#=----------------------------=-:---------------------=--==--------=====*#*=================-::
+[2024-08-02T17:40:29.873+0900] {process_utils.py:191} INFO - @@%%%*-----------------+***++=-----=-::-------------------:+---------=====+++====================-::
+[2024-08-02T17:40:29.873+0900] {process_utils.py:191} INFO - @@%%%*---------------#%%%%##%%#=---=-+##*#+----------------=------------=====+====-=--===========-::
+[2024-08-02T17:40:29.873+0900] {process_utils.py:191} INFO - @@@%%+--=+*%%%+-----+%@@%#++%%%#=--=*%+===#+::----------::=-----------=+*##*++=-----------=======-::
+[2024-08-02T17:40:29.874+0900] {process_utils.py:191} INFO - +++++=-+#+***#*=-----#*++**+#@@@*--+#+**+***-:=-:---=*+-::=-----==+++*######%%%#=-------------==-:::
+[2024-08-02T17:40:29.874+0900] {process_utils.py:191} INFO - *******-:::-*=-------+===+=-=+#%%:-=++++=+==-:=-:::=%%#-::###=-*#%%%%%%%%%%%%%%%%+---------------:::
+[2024-08-02T17:40:29.874+0900] {process_utils.py:191} INFO - =====+=:--::+---+--+**++++*+++#%*-=--**++++-:=++=::+#*-::=%%%#*#%%%%%%%%@@%%%%@@%%#====------+#%%=-*
+[2024-08-02T17:40:29.874+0900] {process_utils.py:191} INFO - =-==++---=+==*#%%%%%%=*++++++++==-=-*##*+=##**++=--++-:--*=-=*#%%%@%###*###*+++*%%%*=============-#%
+[2024-08-02T17:40:29.874+0900] {process_utils.py:191} INFO - +-=------=*%%%%@%@@@@***=+*#+*##*#%%@@**++%@%%%%*+=--=-=+-:--:#%@@%#*****###*+---+*++#**===---=++*%@
+[2024-08-02T17:40:29.874+0900] {process_utils.py:191} INFO - --==-::-*%%%@@@@@@@%#*=-+++%@%##%%@@@@@%#%@@@%%@%%%*=--=#%####-%@%%####++++++=---==++*####*+++*%@%@@
+[2024-08-02T17:40:29.874+0900] {process_utils.py:191} INFO - -=*+=-=#@@@@@@@@@#*+++++*@@@@@@@@@@@@@@@@@@@@@@@@@@@#+==-+*+#=:-+#%##**==++**+++=====+*###*+**#@%##%
+[2024-08-02T17:40:29.874+0900] {process_utils.py:191} INFO - -=++-+%%@%@@@@%+=-++***#@@@@@@@@@@@@%:+@@*%+=%@@@@@@%%#%%#*=+--:-=#++**%#*+=+++++===+**####=*%%%%%%%
+[2024-08-02T17:40:29.874+0900] {process_utils.py:191} INFO - -=++#%%####+-:---=*%%@@%#######**++++=+++++++++%%=+%@@%##*+==-=++=+*****##*===+++++==*#####*+#%%##%%
+[2024-08-02T17:40:29.875+0900] {process_utils.py:191} INFO - -=*+=---==+=-::::-*@@@%+=======++++++++++++++*#%#**%%%*==-+*=--+==*****#**+=====+++++=***+++=+==::::
+[2024-08-02T17:40:29.875+0900] {process_utils.py:191} INFO - =#*=++++++*###**==*@@@%=======++++++++*@@@@@@@@%%#####-:=+----==******##****+++++***==-=+=:::.::::::
+[2024-08-02T17:40:29.875+0900] {process_utils.py:191} INFO - #%*+*++++**##*###*+#@@#=========++++==*%%%%%%%%######*=-----==+*********##########*+====::::::::::::
+[2024-08-02T17:40:29.875+0900] {process_utils.py:191} INFO - ++++*#%%@%*##*##***%@@*===============+%##%%######%%%%*==-===+*********+=+*#######*++++-:::--::-----
+[2024-08-02T17:40:29.875+0900] {process_utils.py:191} INFO - ===+*#%@@%*##**#**+=--================+%%#%%###%#%%%%%#======*#######*-:-++*####*****++:------------
+[2024-08-02T17:40:29.875+0900] {process_utils.py:191} INFO - =+=------=##**##**+=--================+%%#%%###%%#%%%%%+=====+###**++==----:-*####****=------==-====
+[2024-08-02T17:40:29.876+0900] {process_utils.py:191} INFO - 
+[2024-08-02T17:40:29.897+0900] {python.py:237} INFO - Done. Returned value was: None
+[2024-08-02T17:40:29.898+0900] {taskinstance.py:441} INFO - ::group::Post task execution logs
+[2024-08-02T17:40:29.901+0900] {taskinstance.py:1206} INFO - Marking task as SUCCESS. dag_id=movie, task_id=load, run_id=scheduled__2017-01-05T05:13:00+00:00, execution_date=20170105T051300, start_date=20240802T084023, end_date=20240802T084029
+[2024-08-02T17:40:29.965+0900] {local_task_job_runner.py:243} INFO - Task exited with return code 0
+[2024-08-02T17:40:29.974+0900] {taskinstance.py:3503} INFO - 0 downstream tasks scheduled from follow-on schedule check
+[2024-08-02T17:40:29.976+0900] {local_task_job_runner.py:222} INFO - ::endgroup::
