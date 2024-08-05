@@ -26,19 +26,37 @@ with DAG(
         },
     description='Movie Data',
     #schedule=timedelta(days=1),
-    schedule="* 5 * * *",
+    schedule="0 5 * * *",
     start_date=datetime(2017, 5, 1),
     end_date=datetime(2017, 8, 31),
     catchup=True,
     tags=['7_TRG','api', 'movie2'],
 ) as dag:
     #REQUIREMENTS = "git+https://github.com/7-TRG/extract_trg.git@main"
+    def branch_fun(ds_nodash):
+        import os
+        home_dir = os.path.expanduser("~")
+#        path = os.path.join(home_dir, f"tmp/test_parquet/load_dt={ds_nodash}") 
+        path = os.path.join(home_dir, f"code/7_TRG/data_parquet/load_dt={ds_nodash}")
+        if os.path.exists(path):
+            return rm_dir.task_id
+        else:
+            return task_e.task_id
 
-    def extract_df(**kwargs):
+    def extract_df(*args):
+        ds_nodash = args[0]
+        li = args[1:]
+        print(ds_nodash, li)
         from extract_trg.extract_trg import dt2df
-        df = dt2df(dt = kwargs['ds_nodash'], url_param = kwargs['url_params'])
-        print(df.head(10))
-        return df
+        for dic in li:
+            df = dt2df(ds_nodash, dic)
+            print(df.head(10))
+
+            for k, v in dic.items():
+                df[k] = v
+
+            p_cols = ['load_dt'] + list(dic.keys())
+            df.to_parquet("~/code/7_TRG/data_parquet", partition_cols = p_cols)
     def Icebreaking_t():
         from transform_trg.ice_breaking import ice
         ice()
@@ -52,8 +70,9 @@ with DAG(
         requirements=["git+https://github.com/7-TRG/extract_trg.git@d2.0.0"],
         system_site_packages=False,
         trigger_rule="all_done",
-        op_kwargs = {'url_params' : {'multiMovieYn' : 'Y'}}
-        #venv_cache_path="/home/kim1/tmp2/airflow_venv/get_data"
+        op_args = ['{{ ds_nodash }}',{'multiMovieYn' : 'Y'}, {'repNationCd' : 'K'}, {'multiMovieYn': 'N'},{ 'repNationCd' : 'F'}]
+#op_kwargs = {'url_params' : {'multiMovieYn' : 'Y', 'repNationCd' : 'K'}, 'url_params2' : {'multiMovieYn': 'N', 'repNationCd' : 'F'}}
+        #venv_cache_path="/home/kim1/tmp2/airflow_venv/get_data"r
     )
 
     task_t = PythonVirtualenvOperator(
@@ -73,6 +92,16 @@ with DAG(
         #venv_cache_path="/home/kim1/tmp2/airflow_venv/get_data"
     )
 
+    branch_op = BranchPythonOperator(
+        task_id="branch.op",
+        python_callable=branch_fun
+    )
+
+    rm_dir = BashOperator(
+        task_id='rm.dir',
+        bash_command='rm -rf ~/tmp/test_parquet/load_dt={{ ds_nodash }}',
+    )
+
 #    task_err = BashOperator(
 #        bash_command="""
 #            DONE_PATH=~/data/done/{{ds_nodash}}
@@ -84,6 +113,6 @@ with DAG(
     task_end = EmptyOperator(task_id='end', trigger_rule="all_done")
     task_start = EmptyOperator(task_id='start')
 
-    task_start >> task_e >> task_t >> task_l >> task_end
- 
+    task_start >> branch_op  >> task_e >> task_t >> task_l >> task_end
+    branch_op >> rm_dir >> task_e 
 
