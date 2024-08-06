@@ -92,7 +92,7 @@ with DAG(
     task_l = PythonVirtualenvOperator(
         task_id='load',
         python_callable=load_trg,
-        requirements=['git+https://github.com/7-TRG/load_trg.git@dev/d3.0.0'],
+        requirements=['git+https://github.com/7-TRG/load_trg.git@dev/d3.0.0',"git+https://github.com/7-TRG/transform_trg.git@dev/d2.0.0"],
         system_site_packages=False,
         trigger_rule="all_done",
         #venv_cache_path="/home/kim1/tmp2/airflow_venv/get_data"
