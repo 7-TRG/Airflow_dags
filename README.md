@@ -3,7 +3,8 @@
 - 분석 내용 : 국내 영화 일별 일일 매출액 TOP 5</br></br>
 
 # 7_TRG movie Airflow  
-- 7조 영화 데이터 ETL airflow DAG 코드</br></br>
+- 7조 영화 데이터 ETL airflow DAG 코드
+- Graph</br></br>
  ![image](https://github.com/user-attachments/assets/c3b1f555-b134-419f-b956-325830b3de35)                                        
 - 소스 데이터: [kobis open API](https://www.kobis.or.kr/kobisopenapi/homepg/apiservice/searchServiceInfo.do)   
 - API access를 위하여 사이트에서 키 발급받은 후 실행
