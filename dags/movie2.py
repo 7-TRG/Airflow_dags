@@ -18,7 +18,7 @@ with DAG(
     # These args will get passed on to each operator
     # You can override them on a per-task basis during operator initialization
     default_args={
-        'depends_on_past': True,
+        'depends_on_past': False,
         'retries': 2,
         'retry_delay': timedelta(seconds=3),
         'max_active_tasks': 3,
@@ -66,9 +66,9 @@ with DAG(
         df = mer(ds_nodash)
         print(df.head())
         return df
-    def load_trg():
+    def load_trg(ds_nodash):
         from load_trg.load_trg import load_trg
-        load_trg()
+        load_trg(ds_nodash)
 
     task_e = PythonVirtualenvOperator(
         task_id='extract',
@@ -92,7 +92,7 @@ with DAG(
     task_l = PythonVirtualenvOperator(
         task_id='load',
         python_callable=load_trg,
-        requirements=['git+https://github.com/7-TRG/load_trg.git@dev/d3.0.0'],
+        requirements=['git+https://github.com/7-TRG/load_trg.git@dev/d3.0.0',"git+https://github.com/7-TRG/transform_trg.git@dev/d2.0.0"],
         system_site_packages=False,
         trigger_rule="all_done",
         #venv_cache_path="/home/kim1/tmp2/airflow_venv/get_data"
