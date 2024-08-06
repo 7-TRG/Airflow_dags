@@ -46,3 +46,6 @@ Python 3.11.9
 2.9.3
 ```
 
+# 실행 결과
+** 일일 매출액 기준 Top 5 영화 **
+![image](https://github.com/user-attachments/assets/4e8c81cd-7073-4a27-8dda-769c58639575)
