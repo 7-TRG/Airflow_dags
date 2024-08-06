@@ -18,7 +18,7 @@ with DAG(
     # These args will get passed on to each operator
     # You can override them on a per-task basis during operator initialization
     default_args={
-        'depends_on_past': True,
+        'depends_on_past': False,
         'retries': 2,
         'retry_delay': timedelta(seconds=3),
         'max_active_tasks': 3,
@@ -66,9 +66,9 @@ with DAG(
         df = mer(ds_nodash)
         print(df.head())
         return df
-    def load_trg():
+    def load_trg(ds_nodash):
         from load_trg.load_trg import load_trg
-        load_trg()
+        load_trg(ds_nodash)
 
     task_e = PythonVirtualenvOperator(
         task_id='extract',
