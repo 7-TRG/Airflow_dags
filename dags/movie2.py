@@ -29,8 +29,8 @@ with DAG(
     #schedule=timedelta(days=1),
     schedule="0 5 * * *",
     start_date=datetime(2017, 5, 1),
-    #end_date=datetime(2017, 4, 30),
     end_date=datetime(2017, 8, 31),
+    #end_date=datetime(2017, 2, 1),
     catchup=True,
     tags=['7_TRG','api', 'movie'],
 ) as dag:
@@ -66,9 +66,9 @@ with DAG(
         df = mer(ds_nodash)
         print(df.head())
         return df
-    def Icebreaking_l():
-        from load_trg.ice_breaking import ice_breaking
-        ice_breaking()
+    def load_trg():
+        from load_trg.load_trg import load_trg
+        load_trg()
 
     task_e = PythonVirtualenvOperator(
         task_id='extract',
@@ -91,8 +91,8 @@ with DAG(
     )
     task_l = PythonVirtualenvOperator(
         task_id='load',
-        python_callable=Icebreaking_l,
-        requirements=['git+https://github.com/7-TRG/load_trg.git@main'],
+        python_callable=load_trg,
+        requirements=['git+https://github.com/7-TRG/load_trg.git@dev/d3.0.0'],
         system_site_packages=False,
         trigger_rule="all_done",
         #venv_cache_path="/home/kim1/tmp2/airflow_venv/get_data"
